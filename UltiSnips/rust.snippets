@@ -1,0 +1,67 @@
+snippet test
+#[test]
+fn $1(){
+    $0
+}
+endsnippet
+
+
+snippet fn
+///
+/// $1
+/// 
+fn $2($3){
+    $0
+}
+endsnippet
+
+snippet cmtm
+//! $1
+//!
+//! $2
+//!
+//! #Examples
+//! ```
+//! $0
+//! ```
+//!
+endsnippet
+
+snippet cmtc
+/// $1
+///
+/// $2
+///
+/// #Examples
+///
+/// ```
+/// $0
+/// ```
+///
+endsnippet
+
+
+snippet cmtf
+/// $1
+///
+/// $2
+///
+/// #Panics
+///
+/// $3
+///
+/// #Errors
+///
+/// $4
+///
+/// #Safety
+///
+/// $5
+///
+/// #Examples
+///
+/// ```
+/// $0
+/// ```
+///
+endsnippet

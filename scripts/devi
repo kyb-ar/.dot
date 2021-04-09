@@ -1,0 +1,8 @@
+#!/bin/zsh
+tmux new -d
+tmux send nvim ENTER
+tmux new-window
+tmux split-window -v
+tmux split-window -h
+tmux select-pane -U
+tmux -2 attach-session -d
