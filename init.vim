@@ -22,10 +22,14 @@ Plug 'christoomey/vim-tmux-navigator'
 Plug 'bling/vim-airline'
 Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-dispatch'
-Plug 'scrooloose/syntastic'
+
+"Code Analysis
+Plug 'dense-analysis/ale'
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 
 "Snipets
 Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
 
 "Markdown
 Plug 'gabrielelana/vim-markdown'
@@ -33,11 +37,25 @@ Plug 'gabrielelana/vim-markdown'
 "Thrift
 Plug 'solarnz/thrift.vim'
 
-"Python
-Plug 'tell-k/vim-autopep8'
+"Bazel stuff
+Plug 'google/vim-maktaba'
+Plug 'bazelbuild/vim-bazel'
 
-" Use release branch (recommend)
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
+"Python
+Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}
+Plug 'psf/black', { 'branch': 'stable' }
+
+" Rst Plugin
+Plug 'Rykka/riv.vim'
+
+" Puppet Plugin
+Plug 'rodjek/vim-puppet'
+
+" New Stuff
+Plug 'uarun/vim-protobuf'
+Plug 'yoheimuta/vim-protolint'
+Plug 'jjo/vim-cue'
+Plug 'fatih/vim-go'
 
 call plug#end() 
 set autoindent
@@ -55,6 +73,7 @@ nnoremap <c-t> :<CR>
 
 "Maps
 map <space> <Plug>(easymotion-prefix)
+map <leader>f <Plug>(ale_fix)
 command WQ wq
 command Wq wq
 command W w
@@ -64,11 +83,19 @@ command Q q
 let g:UltiSnipsExpandTrigger = "<c-f>"
 let g:UltiSnipsJumpForwardTrigger = "<c-f>"
 let g:UltiSnipsJumpBackwardTrigger = "<c-d>"
+let g:ultisnips_python_style = 'google'
 
-" autopep stuff
-let g:python_recommended_style = 0
-let g:autopep8_indent_size=4
-let g:autopep8_disable_show_diff=1
-let g:autopep8_max_line_length=99
-autocmd FileType python nnoremap <leader>f  :call Autopep8()<CR>
-autocmd FileType scala nnoremap <leader>f :% !scalafmt --stdin<CR>
+let g:ale_linter_aliases = {'python': ['python', 'aurora']}
+let g:ale_linters = {
+\   'python': ['black'],
+\   'proto': ['protoc-gen-lint', 'protolint'],
+\}
+
+let g:ale_fixers = {
+\   '*': ['remove_trailing_lines', 'trim_whitespace'],
+\   'javascript': ['eslint'],
+\   'python': ['black'],
+\   'proto': ['protolint'],
+\}
+
+let g:deoplete#enable_at_startup = 1
