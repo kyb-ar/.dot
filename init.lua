@@ -15,6 +15,7 @@ o.softtabstop = 0
 o.expandtab = true
 o.shiftwidth = 2
 o.smarttab = true
+o.swapfile = false
 
 opt.colorcolumn = "100"
 opt.completeopt = {'menu', 'menuone', 'noselect'}
