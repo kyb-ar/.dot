@@ -27,6 +27,7 @@ return require('packer').startup(function(use)
     use 'flazz/vim-colorschemes'
     use 'SirVer/Ultisnips'
     use 'honza/vim-snippets'
+    use 'quangnguyen30192/cmp-nvim-ultisnips'
     use 'EvanQuan/vim-executioner'
 
     use 'tpope/vim-fugitive'
@@ -41,13 +42,12 @@ return require('packer').startup(function(use)
             -- {'williamboman/mason-lspconfig.nvim'},
 
             -- LSP Support
-            {'neovim/nvim-lspconfig'}, -- Autocompletion
-            {'hrsh7th/nvim-cmp'}, {'hrsh7th/cmp-nvim-lsp'}, {'L3MON4D3/LuaSnip'}
+            {'neovim/nvim-lspconfig'}, -- Pinned to a version compatible with Neovim < 0.9
+            {'hrsh7th/nvim-cmp'}, -- Pinned to an older version
+            {'hrsh7th/cmp-nvim-lsp'}, -- Pinned to an older version
+            {'L3MON4D3/LuaSnip'}
         }
     }
-
-    use 'nvim-lua/completion-nvim'
-    use 'nvim-lua/diagnostic-nvim'
 
     use {
         'nvim-telescope/telescope.nvim',
@@ -63,12 +63,6 @@ return require('packer').startup(function(use)
         run = 'make',
         cond = vim.fn.executable 'make' == 1
     }
-
-    -- Code Analysis
-    use 'dense-analysis/ale'
-
-    -- Python
-    use {'psf/black', branch = 'stable'}
 
     if packer_bootstrap then require('packer').sync() end
 end)

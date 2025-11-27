@@ -1,9 +1,3 @@
-local g = vim.g
-
-g.ale_linters = {python = {'black'}}
-
-g.ale_fixers = {
-    python = {'black'},
-    cpp = {'clang-format'},
-    lua = {'lua-format'}
-}
+-- This file is intentionally left blank.
+-- The ALE plugin has been removed to avoid conflicts with lsp-zero.
+-- Formatting and linting are now handled by LSP.

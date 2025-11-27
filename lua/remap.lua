@@ -18,5 +18,10 @@ kmap('n', '<leader>sd', require('telescope.builtin').live_grep,
 kmap('n', '<leader>sb', require('telescope.builtin').buffers,
      {desc = '[] Find existing buffers'})
 
-kmap('n', '<leader>f', ':ALEFix<CR>:w<CR>',
-     {noremap = true, silent = true, nowait = true})
+kmap('n', '<leader>f', function() vim.lsp.buf.format() end, {desc = '[F]ormat code'})
+
+vim.g.UltiSnipsExpandTrigger = '<tab>'
+vim.g.UltiSnipsJumpForwardTrigger = '<c-j>'
+vim.g.UltiSnipsJumpBackwardTrigger = '<c-k>'
+
+-- nvim-cmp setup is now handled by lsp-zero.
