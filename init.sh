@@ -19,5 +19,6 @@ ln -s ~/.dot/config.fish ~/.config/fish/config.fish
 ln -s ~/.dot/lua ~/.config/nvim/
 ln -s ~/.dot/lua/* ~/.config/nvim/lua/
 ln -s ~/.dot/.tmux.conf ~/.tmux.conf
+ln -s ~/.dot/.Xmodmap ~/.Xmodmap
 ln -s ~/.dot/UltiSnips ~/.config/nvim/UltiSnips
 ln -s ~/.dot/UltiSnips/* ~/.config/nvim/UltiSnips/
