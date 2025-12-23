@@ -37,14 +37,14 @@ return require('packer').startup(function(use)
         'VonHeikemen/lsp-zero.nvim',
         branch = 'v3.x',
         requires = {
-            --- Uncomment these if you want to manage LSP servers from neovim
-            -- {'williamboman/mason.nvim'},
-            -- {'williamboman/mason-lspconfig.nvim'},
+            -- Mason for LSP server management
+            {'williamboman/mason.nvim'},
+            {'williamboman/mason-lspconfig.nvim'},
 
             -- LSP Support
-            {'neovim/nvim-lspconfig'}, -- Pinned to a version compatible with Neovim < 0.9
-            {'hrsh7th/nvim-cmp'}, -- Pinned to an older version
-            {'hrsh7th/cmp-nvim-lsp'}, -- Pinned to an older version
+            {'neovim/nvim-lspconfig'},
+            {'hrsh7th/nvim-cmp'},
+            {'hrsh7th/cmp-nvim-lsp'},
             {'L3MON4D3/LuaSnip'}
         }
     }
