@@ -16,6 +16,7 @@ o.expandtab = true
 o.shiftwidth = 2
 o.smarttab = true
 o.swapfile = false
+o.updatetime = 500  -- Show diagnostics after 500ms of cursor hold
 
 opt.colorcolumn = "100"
 opt.completeopt = {'menu', 'menuone', 'noselect'}

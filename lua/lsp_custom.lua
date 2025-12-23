@@ -1,7 +1,38 @@
 local lsp_zero = require('lsp-zero')
 
+-- Configure diagnostics display
+vim.diagnostic.config({
+    virtual_text = true,  -- Show errors inline at end of line
+    signs = true,         -- Show signs in the gutter
+    update_in_insert = false,
+    underline = true,
+    severity_sort = true,
+    float = {
+        border = 'rounded',
+        source = 'always',  -- Show the source of the diagnostic
+        header = '',
+        prefix = '',
+    },
+})
+
 lsp_zero.on_attach(function(client, bufnr)
     lsp_zero.default_keymaps({buffer = bufnr})
+
+    -- Show diagnostic in floating window on cursor hold
+    vim.api.nvim_create_autocmd("CursorHold", {
+        buffer = bufnr,
+        callback = function()
+            local opts = {
+                focusable = false,
+                close_events = { "BufLeave", "CursorMoved", "InsertEnter", "FocusLost" },
+                border = 'rounded',
+                source = 'always',
+                prefix = ' ',
+                scope = 'cursor',
+            }
+            vim.diagnostic.open_float(nil, opts)
+        end
+    })
 end)
 
 -- Setup Mason
