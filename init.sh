@@ -7,11 +7,15 @@ mkdir -p ~/.config/nvim
 mkdir -p ~/.config/nvim/lua
 mkdir -p ~/.config/nvim/UltiSnips
 
+mkdir -p ~/.config/fish
+
 rm ~/.tmux.conf
 rm ~/.config/nvim/init.lua
+rm ~/.config/fish/config.fish
 
 
 ln -s ~/.dot/init.lua ~/.config/nvim/init.lua
+ln -s ~/.dot/config.fish ~/.config/fish/config.fish
 ln -s ~/.dot/lua ~/.config/nvim/
 ln -s ~/.dot/lua/* ~/.config/nvim/lua/
 ln -s ~/.dot/.tmux.conf ~/.tmux.conf
